@@ -20,842 +20,7 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        :root {
-            --primary: #FF3E41; [span_0](start_span)/* Vermelho vibrante */[span_0](end_span)
-            --secondary: #00F0FF; [span_1](start_span)/* Ciano futurista */[span_1](end_span)
-            --accent: #FFC107; [span_2](start_span)/* Amarelo de destaque */[span_2](end_span)
-            --background: #0A0A0A; [span_3](start_span)/* Preto profundo */[span_3](end_span)
-            --surface: #1E1E1E; [span_4](start_span)/* Superfície escura */[span_4](end_span)
-            --text: #FFFFFF; [span_5](start_span)/* Branco puro */[span_5](end_span)
-            -[span_6](start_span)-text-secondary: rgba(255, 255, 255, 0.7);[span_6](end_span)
-            --gray-light: #333333;
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --border-radius: 12px;
-            -[span_7](start_span)-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);[span_7](end_span)
-            --glass: rgba(30, 30, 30, 0.7);
-            -[span_8](start_span)-glass-border: rgba(255, 255, 255, 0.1);[span_8](end_span)
-        }
-
-        /* Reset e Base */
-        * {
-            [span_9](start_span)margin: 0;[span_9](end_span)
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            [span_10](start_span)scroll-behavior: smooth;[span_10](end_span)
-            font-size: 16px;
-        }
-
-        body {
-            [span_11](start_span)font-family: 'Montserrat', sans-serif;[span_11](end_span)
-            [span_12](start_span)background-color: var(--background);[span_12](end_span)
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* Tipografia */
-        h1, h2, h3, h4, h5, h6 {
-            [span_13](start_span)font-weight: 700;[span_13](end_span)
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            [span_14](start_span)font-size: clamp(2.5rem, 5vw, 4.5rem);[span_14](end_span)
-            [span_15](start_span)background: linear-gradient(90deg, var(--primary), var(--secondary));[span_15](end_span)
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            [span_16](start_span)text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);[span_16](end_span)
-        }
-
-        h2 {
-            [span_17](start_span)font-size: clamp(2rem, 4vw, 3.5rem);[span_17](end_span)
-            [span_18](start_span)color: var(--secondary);[span_18](end_span)
-            position: relative;
-            display: inline-block;
-            margin-bottom: 3rem;
-        }
-
-        h2::after {
-            [span_19](start_span)content: '';[span_19](end_span)
-            position: absolute;
-            bottom: -1rem;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            [span_20](start_span)border-radius: 2px;[span_20](end_span)
-        }
-
-        h3 {
-            [span_21](start_span)font-size: 1.8rem;[span_21](end_span)
-            [span_22](start_span)color: var(--text);[span_22](end_span)
-        }
-
-        p {
-            [span_23](start_span)color: var(--text-secondary);[span_23](end_span)
-            [span_24](start_span)margin-bottom: 1.5rem;[span_24](end_span)
-            font-size: 1.1rem;
-        }
-
-        a {
-            [span_25](start_span)color: var(--primary);[span_25](end_span)
-            [span_26](start_span)text-decoration: none;[span_26](end_span)
-            transition: var(--transition);
-        }
-
-        a:hover {
-            [span_27](start_span)color: var(--secondary);[span_27](end_span)
-        }
-
-        /* Layout */
-        .container {
-            [span_28](start_span)width: 90%;[span_28](end_span)
-            [span_29](start_span)max-width: 1400px;[span_29](end_span)
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .section {
-            [span_30](start_span)padding: 6rem 0;[span_30](end_span)
-            position: relative;
-        }
-
-        /* Header Moderno */
-        header {
-            [span_31](start_span)position: fixed;[span_31](end_span)
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            [span_32](start_span)border-bottom: 1px solid var(--glass-border);[span_32](end_span)
-            [span_33](start_span)transition: all 0.4s ease;[span_33](end_span)
-        }
-
-        header.scrolled {
-            [span_34](start_span)padding: 0.5rem 0;[span_34](end_span)
-            [span_35](start_span)box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);[span_35](end_span)
-        }
-
-        .nav {
-            [span_36](start_span)display: flex;[span_36](end_span)
-            [span_37](start_span)justify-content: space-between;[span_37](end_span)
-            align-items: center;
-            padding: 1.5rem 0;
-            [span_38](start_span)transition: padding 0.4s ease;[span_38](end_span)
-        }
-
-        .logo {
-            [span_39](start_span)font-size: 1.8rem;[span_39](end_span)
-            [span_40](start_span)font-weight: 800;[span_40](end_span)
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            [span_41](start_span)gap: 0.5rem;[span_41](end_span)
-        }
-
-        .logo span {
-            [span_42](start_span)color: var(--secondary);[span_42](end_span)
-        }
-
-        .logo::before {
-            [span_43](start_span)content: ' ';[span_43](end_span)
-            font-size: 1.5rem;
-        }
-
-        .nav-menu {
-            [span_44](start_span)display: flex;[span_44](end_span)
-            [span_45](start_span)list-style: none;[span_45](end_span)
-            gap: 2rem;
-        }
-
-        .nav-menu li a {
-            [span_46](start_span)color: var(--text);[span_46](end_span)
-            [span_47](start_span)font-weight: 600;[span_47](end_span)
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu li a::after {
-            [span_48](start_span)content: '';[span_48](end_span)
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            [span_49](start_span)transition: width 0.3s ease;[span_49](end_span)
-        }
-
-        .nav-menu li a:hover::after,
-        .nav-menu li a[aria-current="page"]::after {
-            [span_50](start_span)width: 100%;[span_50](end_span)
-        }
-
-        .nav-toggle {
-            [span_51](start_span)display: none;[span_51](end_span)
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-            [span_52](start_span)z-index: 1001;[span_52](end_span)
-        }
-
-        /* Hero Section com Efeito Parallax */
-        .hero {
-            [span_53](start_span)position: relative;[span_53](end_span)
-            [span_54](start_span)min-height: 100vh;[span_54](end_span)
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            [span_55](start_span)content: '';[span_55](end_span)
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            [span_56](start_span)height: 100%;[span_56](end_span)
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%),
-                        [span_57](start_span)url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;[span_57](end_span)
-            [span_58](start_span)z-index: -1;[span_58](end_span)
-            background-attachment: fixed;
-        }
-
-        .hero-content {
-            [span_59](start_span)max-width: 800px;[span_59](end_span)
-            [span_60](start_span)text-align: center;[span_60](end_span)
-            padding: 0 1.5rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-            [span_61](start_span)font-size: 1.3rem;[span_61](end_span)
-            [span_62](start_span)margin-bottom: 2.5rem;[span_62](end_span)
-            color: var(--text);
-            opacity: 0.9;
-        }
-
-        /* Botões Modernos */
-        .btn {
-            [span_63](start_span)display: inline-flex;[span_63](end_span)
-            [span_64](start_span)align-items: center;[span_64](end_span)
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            [span_65](start_span)transition: var(--transition);[span_65](end_span)
-            [span_66](start_span)position: relative;[span_66](end_span)
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-            [span_67](start_span)font-size: 1rem;[span_67](end_span)
-        }
-
-        .btn-primary {
-            [span_68](start_span)background: linear-gradient(45deg, var(--primary), var(--accent));[span_68](end_span)
-            [span_69](start_span)color: var(--background);[span_69](end_span)
-            [span_70](start_span)box-shadow: 0 4px 15px rgba(255, 62, 65, 0.4);[span_70](end_span)
-        }
-
-        .btn-primary:hover {
-            [span_71](start_span)transform: translateY(-3px);[span_71](end_span)
-            [span_72](start_span)box-shadow: 0 8px 25px rgba(255, 62, 65, 0.6);[span_72](end_span)
-        }
-
-        .btn-primary::before {
-            [span_73](start_span)content: '';[span_73](end_span)
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            opacity: 0;
-            [span_74](start_span)transition: opacity 0.3s ease;[span_74](end_span)
-        }
-
-        .btn-primary:hover::before {
-            [span_75](start_span)opacity: 1;[span_75](end_span)
-        }
-
-        .btn span {
-            [span_76](start_span)position: relative;[span_76](end_span)
-            z-index: 1;
-        }
-
-        /* Seção de Cortes */
-        #cuts {
-            [span_77](start_span)background-color: var(--background);[span_77](end_span)
-        }
-
-        .section-title {
-            [span_78](start_span)text-align: center;[span_78](end_span)
-            [span_79](start_span)margin-bottom: 4rem;[span_79](end_span)
-        }
-
-        .cuts-grid {
-            [span_80](start_span)display: grid;[span_80](end_span)
-            [span_81](start_span)grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));[span_81](end_span)
-            gap: 2.5rem;
-        }
-
-        .cut-card {
-            [span_82](start_span)background: var(--surface);[span_82](end_span)
-            [span_83](start_span)border-radius: var(--border-radius);[span_83](end_span)
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            [span_84](start_span)position: relative;[span_84](end_span)
-        }
-
-        .cut-card:hover {
-            [span_85](start_span)transform: translateY(-10px);[span_85](end_span)
-            [span_86](start_span)box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);[span_86](end_span)
-        }
-
-        .cut-image {
-            [span_87](start_span)width: 100%;[span_87](end_span)
-            [span_88](start_span)height: 300px;[span_88](end_span)
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .cut-card:hover .cut-image {
-            [span_89](start_span)transform: scale(1.05);[span_89](end_span)
-        }
-
-        .cut-details {
-            [span_90](start_span)padding: 1.5rem;[span_90](end_span)
-            [span_91](start_span)position: relative;[span_91](end_span)
-            z-index: 1;
-        }
-
-        .cut-details h3 {
-            [span_92](start_span)color: var(--secondary);[span_92](end_span)
-            [span_93](start_span)margin-bottom: 0.5rem;[span_93](end_span)
-        }
-
-        .cut-details p {
-            [span_94](start_span)color: var(--text-secondary);[span_94](end_span)
-        }
-
-        /* Seção Sobre */
-        #about {
-            [span_95](start_span)background: linear-gradient(to bottom, var(--background) 0%, var(--surface) 100%);[span_95](end_span)
-        }
-
-        .about-content {
-            [span_96](start_span)display: grid;[span_96](end_span)
-            [span_97](start_span)grid-template-columns: 1fr 1fr;[span_97](end_span)
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            [span_98](start_span)color: var(--primary);[span_98](end_span)
-            [span_99](start_span)margin-bottom: 1.5rem;[span_99](end_span)
-        }
-
-        .about-image {
-            [span_100](start_span)position: relative;[span_100](end_span)
-            [span_101](start_span)border-radius: var(--border-radius);[span_101](end_span)
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-        }
-
-        .about-image img {
-            [span_102](start_span)width: 100%;[span_102](end_span)
-            [span_103](start_span)height: auto;[span_103](end_span)
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover img {
-            [span_104](start_span)transform: scale(1.03);[span_104](end_span)
-        }
-
-        .about-image::before {
-            [span_105](start_span)content: '';[span_105](end_span)
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            [span_106](start_span)background: linear-gradient(45deg, rgba(255, 62, 65, 0.2), rgba(0, 240, 255, 0.2));[span_106](end_span)
-            [span_107](start_span)z-index: 1;[span_107](end_span)
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .about-image:hover::before {
-            [span_108](start_span)opacity: 1;[span_108](end_span)
-        }
-
-        /* Seção Serviços */
-        #services {
-            [span_109](start_span)background-color: var(--surface);[span_109](end_span)
-            [span_110](start_span)position: relative;[span_110](end_span)
-            overflow: hidden;
-        }
-
-        #services::before {
-            [span_111](start_span)content: '';[span_111](end_span)
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            filter: blur(60px);
-            [span_112](start_span)opacity: 0.1;[span_112](end_span)
-            [span_113](start_span)z-index: 0;[span_113](end_span)
-        }
-
-        #services::after {
-            [span_114](start_span)content: '';[span_114](end_span)
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-            filter: blur(60px);
-            [span_115](start_span)opacity: 0.1;[span_115](end_span)
-            [span_116](start_span)z-index: 0;[span_116](end_span)
-        }
-
-        .services-grid {
-            [span_117](start_span)display: grid;[span_117](end_span)
-            [span_118](start_span)grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));[span_118](end_span)
-            gap: 2.5rem;
-            position: relative;
-            [span_119](start_span)z-index: 1;[span_119](end_span)
-        }
-
-        .service-card {
-            [span_120](start_span)background: var(--glass);[span_120](end_span)
-            [span_121](start_span)backdrop-filter: blur(10px);[span_121](end_span)
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            text-align: center;
-            transition: var(--transition);
-            [span_122](start_span)box-shadow: var(--box-shadow);[span_122](end_span)
-        }
-
-        .service-card:hover {
-            [span_123](start_span)transform: translateY(-10px);[span_123](end_span)
-            [span_124](start_span)background: rgba(255, 62, 65, 0.1);[span_124](end_span)
-            border-color: var(--primary);
-        }
-
-        .service-card i {
-            [span_125](start_span)font-size: 3rem;[span_125](end_span)
-            [span_126](start_span)color: var(--secondary);[span_126](end_span)
-            margin-bottom: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .service-card:hover i {
-            [span_127](start_span)color: var(--primary);[span_127](end_span)
-            [span_128](start_span)transform: scale(1.2);[span_128](end_span)
-        }
-
-        .service-card h3 {
-            [span_129](start_span)margin-bottom: 1rem;[span_129](end_span)
-            [span_130](start_span)color: var(--text);[span_130](end_span)
-        }
-
-        /* Seção Agendamento */
-        #appointment {
-            [span_131](start_span)background: linear-gradient(to bottom, var(--surface) 0%, var(--background) 100%);[span_131](end_span)
-        }
-
-        .appointment-form {
-            [span_132](start_span)max-width: 700px;[span_132](end_span)
-            [span_133](start_span)margin: 0 auto;[span_133](end_span)
-            padding: 3rem;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            [span_134](start_span)box-shadow: var(--box-shadow);[span_134](end_span)
-        }
-
-        .form-group {
-            [span_135](start_span)margin-bottom: 1.8rem;[span_135](end_span)
-        }
-
-        .form-group label {
-            [span_136](start_span)display: block;[span_136](end_span)
-            [span_137](start_span)color: var(--text);[span_137](end_span)
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .form-control {
-            [span_138](start_span)width: 100%;[span_138](end_span)
-            [span_139](start_span)padding: 1rem 1.5rem;[span_139](end_span)
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            color: var(--text);
-            font-size: 1rem;
-            [span_140](start_span)transition: var(--transition);[span_140](end_span)
-        }
-
-        .form-control:focus {
-            [span_141](start_span)outline: none;[span_141](end_span)
-            [span_142](start_span)border-color: var(--secondary);[span_142](end_span)
-            [span_143](start_span)box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.2);[span_143](end_span)
-        }
-
-        textarea.form-control {
-            [span_144](start_span)min-height: 150px;[span_144](end_span)
-            resize: vertical;
-        }
-
-        /* Seção Contato */
-        #contact {
-            [span_145](start_span)background-color: var(--background);[span_145](end_span)
-        }
-
-        .contact-container {
-            [span_146](start_span)display: grid;[span_146](end_span)
-            [span_147](start_span)grid-template-columns: 1fr 1fr;[span_147](end_span)
-            gap: 4rem;
-        }
-
-        .contact-info {
-            [span_148](start_span)display: flex;[span_148](end_span)
-            [span_149](start_span)flex-direction: column;[span_149](end_span)
-            gap: 2rem;
-        }
-
-        .contact-item {
-            [span_150](start_span)display: flex;[span_150](end_span)
-            [span_151](start_span)align-items: flex-start;[span_151](end_span)
-            gap: 1rem;
-        }
-
-        .contact-item i {
-            [span_152](start_span)font-size: 1.5rem;[span_152](end_span)
-            [span_153](start_span)color: var(--secondary);[span_153](end_span)
-            margin-top: 0.3rem;
-        }
-
-        .contact-item h3 {
-            [span_154](start_span)font-size: 1.3rem;[span_154](end_span)
-            [span_155](start_span)margin-bottom: 0.5rem;[span_155](end_span)
-        }
-
-        .contact-item p, .contact-item a {
-            [span_156](start_span)color: var(--text-secondary);[span_156](end_span)
-        }
-
-        .contact-item a:hover {
-            [span_157](start_span)color: var(--secondary);[span_157](end_span)
-        }
-
-        /* Rodapé */
-        .footer {
-            [span_158](start_span)background-color: var(--surface);[span_158](end_span)
-            [span_159](start_span)padding: 4rem 0 2rem;[span_159](end_span)
-            position: relative;
-        }
-
-        .footer::before {
-            [span_160](start_span)content: '';[span_160](end_span)
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            [span_161](start_span)background: linear-gradient(90deg, transparent, var(--secondary), transparent);[span_161](end_span)
-        }
-
-        .footer-content {
-            [span_162](start_span)display: grid;[span_162](end_span)
-            [span_163](start_span)grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));[span_163](end_span)
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo {
-            [span_164](start_span)font-size: 1.8rem;[span_164](end_span)
-            [span_165](start_span)font-weight: 800;[span_165](end_span)
-            color: var(--text);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .footer-logo span {
-            [span_166](start_span)color: var(--secondary);[span_166](end_span)
-        }
-
-        .footer-about p {
-            [span_167](start_span)margin-bottom: 1.5rem;[span_167](end_span)
-        }
-
-        .social-links {
-            [span_168](start_span)display: flex;[span_168](end_span)
-            gap: 1rem;
-        }
-
-        .social-links a {
-            [span_169](start_span)display: flex;[span_169](end_span)
-            [span_170](start_span)align-items: center;[span_170](end_span)
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text);
-            [span_171](start_span)transition: var(--transition);[span_171](end_span)
-        }
-
-        .social-links a:hover {
-            [span_172](start_span)background: var(--primary);[span_172](end_span)
-            [span_173](start_span)color: var(--background);[span_173](end_span)
-            transform: translateY(-3px);
-        }
-
-        .footer-links h3 {
-            [span_174](start_span)color: var(--text);[span_174](end_span)
-            [span_175](start_span)margin-bottom: 1.5rem;[span_175](end_span)
-            font-size: 1.3rem;
-        }
-
-        .footer-links ul {
-            [span_176](start_span)list-style: none;[span_176](end_span)
-        }
-
-        .footer-links li {
-            [span_177](start_span)margin-bottom: 0.8rem;[span_177](end_span)
-        }
-
-        .footer-links a {
-            [span_178](start_span)color: var(--text-secondary);[span_178](end_span)
-            [span_179](start_span)transition: var(--transition);[span_179](end_span)
-        }
-
-        .footer-links a:hover {
-            [span_180](start_span)color: var(--secondary);[span_180](end_span)
-            [span_181](start_span)padding-left: 5px;[span_181](end_span)
-        }
-
-        .footer-bottom {
-            [span_182](start_span)text-align: center;[span_182](end_span)
-            [span_183](start_span)padding-top: 2rem;[span_183](end_span)
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom p {
-            [span_184](start_span)color: var(--text-secondary);[span_184](end_span)
-            [span_185](start_span)font-size: 0.9rem;[span_185](end_span)
-        }
-
-        /* Efeitos e Animações */
-        @keyframes fadeInUp {
-            from {
-                [span_186](start_span)opacity: 0;[span_186](end_span)
-                [span_187](start_span)transform: translateY(20px);[span_187](end_span)
-            }
-            to {
-                [span_188](start_span)opacity: 1;[span_188](end_span)
-                [span_189](start_span)transform: translateY(0);[span_189](end_span)
-            }
-        }
-
-        .animate-on-scroll {
-            [span_190](start_span)opacity: 0;[span_190](end_span)
-            [span_191](start_span)transform: translateY(30px);[span_191](end_span)
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .animate-on-scroll.visible {
-            [span_192](start_span)opacity: 1;[span_192](end_span)
-            [span_193](start_span)transform: translateY(0);[span_193](end_span)
-        }
-
-        /* Efeito de Partículas */
-        .particles {
-            [span_194](start_span)position: absolute;[span_194](end_span)
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            [span_195](start_span)overflow: hidden;[span_195](end_span)
-        }
-
-        .particle {
-            [span_196](start_span)position: absolute;[span_196](end_span)
-            [span_197](start_span)background: var(--secondary);[span_197](end_span)
-            border-radius: 50%;
-            opacity: 0.3;
-            [span_198](start_span)animation: float linear infinite;[span_198](end_span)
-        }
-
-        @keyframes float {
-            0% {
-                [span_199](start_span)transform: translateY(0) rotate(0deg);[span_199](end_span)
-            }
-            100% {
-                [span_200](start_span)transform: translateY(-100vh) rotate(360deg);[span_200](end_span)
-            }
-        }
-
-        /* Modal de Confirmação */
-        .modal {
-            [span_201](start_span)position: fixed;[span_201](end_span)
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            display: flex;
-            [span_202](start_span)align-items: center;[span_202](end_span)
-            [span_203](start_span)justify-content: center;[span_203](end_span)
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            [span_204](start_span)transition: all 0.3s ease;[span_204](end_span)
-        }
-
-        .modal.active {
-            [span_205](start_span)opacity: 1;[span_205](end_span)
-            [span_206](start_span)visibility: visible;[span_206](end_span)
-        }
-
-        .modal-content {
-            [span_207](start_span)background: var(--surface);[span_207](end_span)
-            [span_208](start_span)padding: 3rem;[span_208](end_span)
-            border-radius: var(--border-radius);
-            max-width: 500px;
-            text-align: center;
-            position: relative;
-            transform: scale(0.9);
-            [span_209](start_span)transition: transform 0.3s ease;[span_209](end_span)
-            [span_210](start_span)box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);[span_210](end_span)
-        }
-
-        .modal.active .modal-content {
-            [span_211](start_span)transform: scale(1);[span_211](end_span)
-        }
-
-        .modal-close {
-            [span_212](start_span)position: absolute;[span_212](end_span)
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            [span_213](start_span)transition: color 0.3s ease;[span_213](end_span)
-        }
-
-        .modal-close:hover {
-            [span_214](start_span)color: var(--primary);[span_214](end_span)
-        }
-
-        .modal h2 {
-            [span_215](start_span)color: var(--secondary);[span_215](end_span)
-            [span_216](start_span)margin-bottom: 1.5rem;[span_216](end_span)
-        }
-
-        .modal p {
-            [span_217](start_span)margin-bottom: 2rem;[span_217](end_span)
-            [span_218](start_span)color: var(--text);[span_218](end_span)
-        }
-
-        /* Responsividade */
-        @media (max-width: 992px) {
-            .about-content {
-                [span_219](start_span)grid-template-columns: 1fr;[span_219](end_span)
-            }
-
-            .about-image {
-                [span_220](start_span)order: -1;[span_220](end_span)
-            }
-
-            .contact-container {
-                [span_221](start_span)grid-template-columns: 1fr;[span_221](end_span)
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                [span_222](start_span)position: fixed;[span_222](end_span)
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: var(--surface);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                [span_223](start_span)gap: 2rem;[span_223](end_span)
-                [span_224](start_span)transition: right 0.4s ease;[span_224](end_span)
-                z-index: 1000;
-                [span_225](start_span)box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);[span_225](end_span)
-            }
-
-            .nav-menu.active {
-                [span_226](start_span)right: 0;[span_226](end_span)
-            }
-
-            .nav-toggle {
-                [span_227](start_span)display: block;[span_227](end_span)
-            }
-
-            .hero p {
-                [span_228](start_span)font-size: 1.1rem;[span_228](end_span)
-            }
-
-            .appointment-form {
-                [span_229](start_span)padding: 2rem;[span_229](end_span)
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section {
-                [span_230](start_span)padding: 4rem 0;[span_230](end_span)
-            }
-
-            .btn {
-                [span_231](start_span)padding: 0.8rem 1.8rem;[span_231](end_span)
-                [span_232](start_span)font-size: 0.9rem;[span_232](end_span)
-            }
-
-            .cuts-grid, .services-grid {
-                [span_233](start_span)grid-template-columns: 1fr;[span_233](end_span)
-            }
-
-            .appointment-form {
-                [span_234](start_span)padding: 1.5rem;[span_234](end_span)
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="particles" id="particles"></div>
@@ -864,8 +29,7 @@
         <div class="modal-content">
             <button class="modal-close" id="modalClose">×</button>
             <h2>Agendamento Confirmado!</h2>
-            [span_235](start_span)<p id="modalMessage">Seu horário foi agendado com sucesso.[span_235](end_span)
- Aguardamos você na Barbearia Futura!</p>
+            <p id="modalMessage">Seu horário foi agendado com sucesso. Aguardamos você na Barbearia Futura!</p>
             <button class="btn btn-primary" id="modalButton">Fechar</button>
         </div>
     </div>
@@ -875,13 +39,13 @@
             <a href="#home" class="logo">Barbearia <span>Futura</span></a>
             <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" id="navToggle">
                 <i class="fas fa-bars"></i>
-            [span_236](start_span)</button>[span_236](end_span)
+            </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" aria-current="page">Início</a></li>
                 <li><a href="#cuts">Cortes</a></li>
                 <li><a href="#about">Sobre Nós</a></li>
                 <li><a href="#services">Serviços</a></li>
-                [span_237](start_span)<li><a href="#appointment">Agendamento</a></li>[span_237](end_span)
+                <li><a href="#appointment">Agendamento</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
@@ -891,11 +55,11 @@
         <section id="home" class="hero">
             <div class="hero-content container">
                 <h1>Revolucione Seu Estilo</h1>
-                [span_238](start_span)<p>Na Barbearia Futura, combinamos técnicas tradicionais com tecnologia de ponta para criar looks únicos e personalizados.</p>[span_238](end_span)
+                <p>Na Barbearia Futura, combinamos técnicas tradicionais com tecnologia de ponta para criar looks únicos e personalizados.</p>
                 <a href="#appointment" class="btn btn-primary">
                     <span>Agendar Horário</span>
                     <i class="fas fa-arrow-right"></i>
-                [span_239](start_span)</a>[span_239](end_span)
+                </a>
             </div>
         </section>
 
@@ -903,28 +67,28 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Nossos Cortes Exclusivos</h2>
-                    [span_240](start_span)<p>Descubra nossos cortes assinados que combinam técnica e inovação</p>[span_240](end_span)
+                    <p>Descubra nossos cortes assinados que combinam técnica e inovação</p>
                 </div>
                 <div class="cuts-grid">
                     <div class="cut-card animate-on-scroll">
-                        [span_241](start_span)<img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Corte Degradê Cyberpunk" class="cut-image" loading="lazy">[span_241](end_span)
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Corte Degradê Cyberpunk" class="cut-image" loading="lazy">
                         <div class="cut-details">
                             <h3>Corte Degradê Cyberpunk</h3>
-                            [span_242](start_span)<p>Um visual arrojado com linhas precisas e um toque futurista, perfeito para quem busca ousadia.</p>[span_242](end_span)
+                            <p>Um visual arrojado com linhas precisas e um toque futurista, perfeito para quem busca ousadia.</p>
                         </div>
                     </div>
                     <div class="cut-card animate-on-scroll">
-                        [span_243](start_span)<img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Undercut Biomecânico" class="cut-image" loading="lazy">[span_243](end_span)
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Undercut Biomecânico" class="cut-image" loading="lazy">
                         <div class="cut-details">
                             <h3>Undercut Biomecânico</h3>
-                            [span_244](start_span)<p>Estilo ousado com laterais raspadas e design texturizado no topo para um visual impactante.</p>[span_244](end_span)
+                            <p>Estilo ousado com laterais raspadas e design texturizado no topo para um visual impactante.</p>
                         </div>
                     </div>
                     <div class="cut-card animate-on-scroll">
-                        [span_245](start_span)<img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Topete Volumétrico Tech" class="cut-image" loading="lazy">[span_245](end_span)
+                        <img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Topete Volumétrico Tech" class="cut-image" loading="lazy">
                         <div class="cut-details">
                             <h3>Topete Volumétrico Tech</h3>
-                            [span_246](start_span)<p>Elegância e modernidade em um corte com volume e acabamento impecável para o dia a dia.</p>[span_246](end_span)
+                            <p>Elegância e modernidade em um corte com volume e acabamento impecável para o dia a dia.</p>
                         </div>
                     </div>
                 </div>
@@ -933,19 +97,19 @@
 
         <section id="about" class="section">
             <div class="container">
-                [span_247](start_span)<div class="section-title">[span_247](end_span)
+                <div class="section-title">
                     <h2>Sobre Nós</h2>
                     <p>Conheça a história por trás da Barbearia Futura</p>
                 </div>
                 <div class="about-content animate-on-scroll">
-                    [span_248](start_span)<div class="about-text">[span_248](end_span)
+                    <div class="about-text">
                         <h3>Inovação e Tradição em Harmonia</h3>
-                        [span_249](start_span)<p>Fundada em 2020, a Barbearia Futura nasceu da paixão por unir o melhor das técnicas tradicionais de barbearia com um olhar visionário para o futuro.[span_249](end_span) Nossa equipe é composta por barbeiros especializados que estão constantemente atualizados com as últimas tendências e tecnologias do mercado.</p>
-                        [span_250](start_span)<p>Nosso espaço foi cuidadosamente projetado para oferecer uma experiência única, onde cada detalhe foi pensado para seu conforto e bem-estar.[span_250](end_span) Desde a iluminação até os equipamentos que utilizamos, tudo foi selecionado para proporcionar o melhor resultado em seu visual.</p>
-                        [span_251](start_span)<p>Acreditamos que um bom corte de cabelo vai além da estética - é uma forma de expressão pessoal e autoestima.[span_251](end_span) Por isso, dedicamos tempo para entender suas necessidades e criar um estilo que realmente combine com sua personalidade.</p>
+                        <p>Fundada em 2020, a Barbearia Futura nasceu da paixão por unir o melhor das técnicas tradicionais de barbearia com um olhar visionário para o futuro. Nossa equipe é composta por barbeiros especializados que estão constantemente atualizados com as últimas tendências e tecnologias do mercado.</p>
+                        <p>Nosso espaço foi cuidadosamente projetado para oferecer uma experiência única, onde cada detalhe foi pensado para seu conforto e bem-estar. Desde a iluminação até os equipamentos que utilizamos, tudo foi selecionado para proporcionar o melhor resultado em seu visual.</p>
+                        <p>Acreditamos que um bom corte de cabelo vai além da estética - é uma forma de expressão pessoal e autoestima. Por isso, dedicamos tempo para entender suas necessidades e criar um estilo que realmente combine com sua personalidade.</p>
                     </div>
                     <div class="about-image">
-                        [span_252](start_span)<img src="https://images.unsplash.com/photo-1562788865-9d87c8f7a9f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Interior da Barbearia Futura" loading="lazy">[span_252](end_span)
+                        <img src="https://images.unsplash.com/photo-1562788865-9d87c8f7a9f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Interior da Barbearia Futura" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -953,40 +117,40 @@
 
         <section id="services" class="section">
             <div class="container">
-                [span_253](start_span)<div class="section-title">[span_253](end_span)
+                <div class="section-title">
                     <h2>Nossos Serviços</h2>
                     <p>Oferecemos uma experiência completa de cuidados masculinos</p>
                 </div>
                 <div class="services-grid">
-                    [span_254](start_span)<div class="service-card animate-on-scroll">[span_254](end_span)
+                    <div class="service-card animate-on-scroll">
                         <i class="fas fa-cut"></i>
                         <h3>Cortes Premium</h3>
                         <p>Cortes personalizados utilizando técnicas avançadas e produtos de alta qualidade para um resultado impecável.</p>
                     </div>
-                    [span_255](start_span)<div class="service-card animate-on-scroll">[span_255](end_span)
+                    <div class="service-card animate-on-scroll">
                         <i class="fas fa-shaving-brush"></i>
                         <h3>Barba Estilizada</h3>
-                        [span_256](start_span)<p>Serviço completo para barba incluindo limpeza, hidratação e design personalizado para seu rosto.</p>[span_256](end_span)
+                        <p>Serviço completo para barba incluindo limpeza, hidratação e design personalizado para seu rosto.</p>
                     </div>
                     <div class="service-card animate-on-scroll">
                         <i class="fas fa-spa"></i>
                         <h3>Tratamentos</h3>
-                        [span_257](start_span)<p>Hidratação, nutrição e reconstrução capilar com produtos profissionais para cabelos saudáveis.</p>[span_257](end_span)
+                        <p>Hidratação, nutrição e reconstrução capilar com produtos profissionais para cabelos saudáveis.</p>
                     </div>
                     <div class="service-card animate-on-scroll">
-                        [span_258](start_span)<i class="fas fa-hot-tub"></i>[span_258](end_span)
+                        <i class="fas fa-hot-tub"></i>
                         <h3>Barbear Clássico</h3>
                         <p>Experiência premium com toalhas quentes, óleos aromáticos e lâmina tradicional.</p>
                     </div>
                     <div class="service-card animate-on-scroll">
-                        [span_259](start_span)<i class="fas fa-palette"></i>[span_259](end_span)
+                        <i class="fas fa-palette"></i>
                         <h3>Coloração</h3>
                         <p>Técnicas avançadas de coloração para realçar seu visual ou cobrir os fios brancos.</p>
-                    [span_260](start_span)</div>[span_260](end_span)
+                    </div>
                     <div class="service-card animate-on-scroll">
                         <i class="fas fa-eye"></i>
                         <h3>Design Facial</h3>
-                        [span_261](start_span)<p>Serviço completo para sobrancelhas e contorno facial para valorizar seus traços.</p>[span_261](end_span)
+                        <p>Serviço completo para sobrancelhas e contorno facial para valorizar seus traços.</p>
                     </div>
                 </div>
             </div>
@@ -994,93 +158,92 @@
 
         <section id="appointment" class="section">
             <div class="container">
-                [span_262](start_span)<div class="section-title">[span_262](end_span)
+                <div class="section-title">
                     <h2>Agendamento</h2>
                     <p>Reserve seu horário com nossos especialistas</p>
                 </div>
-                [span_263](start_span)<div class="appointment-form animate-on-scroll">[span_263](end_span)
+                <div class="appointment-form animate-on-scroll">
                     <form id="appointmentForm">
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
                             <input type="text" id="name" class="form-control" required>
-                        [span_264](start_span)</div>[span_264](end_span)
+                        </div>
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            [span_265](start_span)<input type="email" id="email" class="form-control" required>[span_265](end_span)
+                            <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefone</label>
-                            [span_266](start_span)<input type="tel" id="phone" class="form-control" required>[span_266](end_span)
+                            <input type="tel" id="phone" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="service">Serviço Desejado</label>
-                            [span_267](start_span)<select id="service" class="form-control" required>[span_267](end_span)
+                            <select id="service" class="form-control" required>
                                 <option value="">Selecione um serviço</option>
                                 <option value="corte">Corte de Cabelo</option>
-                                [span_268](start_span)<option value="barba">Barba Completa</option>[span_268](end_span)
+                                <option value="barba">Barba Completa</option>
                                 <option value="combo">Corte + Barba</option>
                                 <option value="tratamento">Tratamento Capilar</option>
-                                [span_269](start_span)<option value="coloracao">Coloração</option>[span_269](end_span)
+                                <option value="coloracao">Coloração</option>
                                 <option value="outro">Outro Serviço</option>
                             </select>
-                        [span_270](start_span)</div>[span_270](end_span)
+                        </div>
                         <div class="form-group">
                             <label for="date">Data e Horário</label>
-                            [span_271](start_span)<input type="datetime-local" id="date" class="form-control" required>[span_271](end_span)
+                            <input type="datetime-local" id="date" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="notes">Observações</label>
-                            [span_272](start_span)<textarea id="notes" class="form-control" rows="3"></textarea>[span_272](end_span)
+                            <textarea id="notes" class="form-control" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
                             <span>Confirmar Agendamento</span>
                             <i class="fas fa-calendar-check"></i>
-                        [span_273](start_span)</button>[span_273](end_span)
+                        </button>
                     </form>
                 </div>
             </div>
-        [span_274](start_span)</section>[span_274](end_span)
+        </section>
 
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-title">
                     <h2>Contato</h2>
-                    [span_275](start_span)<p>Entre em contato conosco para mais informações</p>[span_275](end_span)
+                    <p>Entre em contato conosco para mais informações</p>
                 </div>
                 <div class="contact-container">
                     <div class="contact-info animate-on-scroll">
                         <div class="contact-item">
-                            [span_276](start_span)<i class="fas fa-map-marker-alt"></i>[span_276](end_span)
+                            <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h3>Endereço</h3>
-                                [span_277](start_span)<p>Av.[span_277](end_span) Futurista, 1234 - Centro<br>São Paulo, SP</p>
+                                <p>Av. Futurista, 1234 - Centro<br>São Paulo, SP</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            [span_278](start_span)<i class="fas fa-phone-alt"></i>[span_278](end_span)
+                            <i class="fas fa-phone-alt"></i>
                             <div>
                                 <h3>Telefone</h3>
-                                [span_279](start_span)<p><a href="tel:+5511999999999">(11) 99999-9999</a></p>[span_279](end_span)
+                                <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            [span_280](start_span)<i class="fas fa-envelope"></i>[span_280](end_span)
+                            <i class="fas fa-envelope"></i>
                             <div>
                                 <h3>E-mail</h3>
-                                [span_281](start_span)<p><a href="mailto:contato@barbeariafutura.com">contato@barbeariafutura.com</a></p>[span_281](end_span)
+                                <p><a href="mailto:contato@barbeariafutura.com">contato@barbeariafutura.com</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            [span_282](start_span)<i class="fas fa-clock"></i>[span_282](end_span)
+                            <i class="fas fa-clock"></i>
                             <div>
                                 <h3>Horário de Funcionamento</h3>
-                                [span_283](start_span)<p>Segunda a Sexta: 10h às 20h<br>Sábado: 9h às 18h<br>Domingo: Fechado</p>[span_283](end_span)
+                                <p>Segunda a Sexta: 10h às 20h<br>Sábado: 9h às 18h<br>Domingo: Fechado</p>
                             </div>
                         </div>
                     </div>
-                    [span_284](start_span)<div class="animate-on-scroll">[span_284](end_span)
-                        [span_285](start_span)<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.4475525000007!2d-46.6543881844973!3d-23.550519367800003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59a8c1f7b7f1%3A0x7d2b2c3a5e8e3d0!2sAvenida%20Paulista%2C%201234%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-000!5e0!3m2!1spt-BR!2sbr!4v1684534567890!5m2!1spt-BR!2sbr" width="100%" height="400" style="border:0;[span_285](end_span)
-border-radius: var(--border-radius);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="animate-on-scroll">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.4475525000007!2d-46.6543881844973!3d-23.550519367800003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59a8c1f7b7f1%3A0x7d2b2c3a5e8e3d0!2sAvenida%20Paulista%2C%201234%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-000!5e0!3m2!1spt-BR!2sbr!4v1684534567890!5m2!1spt-BR!2sbr" width="100%" height="400" style="border:0;border-radius: var(--border-radius);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -1090,192 +253,55 @@ border-radius: var(--border-radius);" allowfullscreen="" loading="lazy" referrer
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                [span_286](start_span)<div class="footer-about">[span_286](end_span)
+                <div class="footer-about">
                     <a href="#" class="footer-logo">Barbearia <span>Futura</span></a>
                     <p>Revolucionando o mundo da barbearia com técnicas inovadoras e um atendimento exclusivo para você.</p>
                     <div class="social-links">
-                        [span_287](start_span)<a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>[span_287](end_span)
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    [span_288](start_span)</div>[span_288](end_span)
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h3>Links Rápidos</h3>
-                    [span_289](start_span)<ul>[span_289](end_span)
+                    <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#cuts">Cortes</a></li>
                         <li><a href="#about">Sobre Nós</a></li>
                         <li><a href="#services">Serviços</a></li>
-                        [span_290](start_span)<li><a href="#appointment">Agendamento</a></li>[span_290](end_span)
+                        <li><a href="#appointment">Agendamento</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    [span_291](start_span)<h3>Serviços</h3>[span_291](end_span)
+                    <h3>Serviços</h3>
                     <ul>
                         <li><a href="#">Cortes Premium</a></li>
                         <li><a href="#">Barba Estilizada</a></li>
-                        [span_292](start_span)<li><a href="#">Tratamentos</a></li>[span_292](end_span)
+                        <li><a href="#">Tratamentos</a></li>
                         <li><a href="#">Barbear Clássico</a></li>
                         <li><a href="#">Coloração</a></li>
                         <li><a href="#">Design Facial</a></li>
-                    [span_293](start_span)</ul>[span_293](end_span)
+                    </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Suporte</h3>
-                    [span_294](start_span)<ul>[span_294](end_span)
+                    <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Política de Privacidade</a></li>
                         <li><a href="#">Termos de Serviço</a></li>
                         <li><a href="#">Cancelamentos</a></li>
-                        [span_295](start_span)<li><a href="#">Trabalhe Conosco</a></li>[span_295](end_span)
+                        <li><a href="#">Trabalhe Conosco</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                [span_296](start_span)<p>© <span id="year"></span> Barbearia Futura.[span_296](end_span) Todos os direitos reservados.</p>
+                <p>© <span id="year"></span> Barbearia Futura. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Menu Mobile
-        [span_297](start_span)const navToggle = document.getElementById('navToggle');[span_297](end_span)
-        const navMenu = document.getElementById('navMenu');
-
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
-            navToggle.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            [span_298](start_span)link.addEventListener('click', () => {[span_298](end_span)
-                navMenu.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        [span_299](start_span)});[span_299](end_span)
-
-        // Header scroll effect
-        [span_300](start_span)const header = document.getElementById('header');[span_300](end_span)
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        // Animação ao scroll
-        [span_301](start_span)const animateElements = document.querySelectorAll('.animate-on-scroll');[span_301](end_span)
-        [span_302](start_span)const observer = new IntersectionObserver((entries) => {[span_302](end_span)
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            [span_303](start_span)threshold: 0.1[span_303](end_span)
-        });
-        [span_304](start_span)animateElements.forEach(element => {[span_304](end_span)
-            observer.observe(element);
-        });
-        // Efeito de partículas
-        const particlesContainer = document.getElementById('particles');
-        [span_305](start_span)const particleCount = 30;[span_305](end_span)
-        [span_306](start_span)for (let i = 0; i < particleCount; i++) {[span_306](end_span)
-            [span_307](start_span)const particle = document.createElement('div');[span_307](end_span)
-            particle.classList.add('particle');
-            
-            // Tamanho aleatório entre 2px e 5px
-            [span_308](start_span)const size = Math.random() * 3 + 2;[span_308](end_span)
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Posição aleatória
-            [span_309](start_span)particle.style.left = `${Math.random() * 100}%`;[span_309](end_span)
-            particle.style.top = `${Math.random() * 100}%`;
-            
-            // Cor aleatória entre os tons do tema
-            [span_310](start_span)const colors = ['var(--primary)', 'var(--secondary)', 'var(--accent)'];[span_310](end_span)
-            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            // Duração da animação aleatória
-            [span_311](start_span)const duration = Math.random() * 20 + 10;[span_311](end_span)
-            particle.style.animationDuration = `${duration}s`;
-            
-            // Atraso aleatório
-            [span_312](start_span)particle.style.animationDelay = `${Math.random() * 5}s`;[span_312](end_span)
-            particlesContainer.appendChild(particle);
-        }
-
-        // Modal de confirmação
-        [span_313](start_span)const appointmentForm = document.getElementById('appointmentForm');[span_313](end_span)
-        const confirmationModal = document.getElementById('confirmationModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalButton = document.getElementById('modalButton');
-        [span_314](start_span)const modalMessage = document.getElementById('modalMessage');[span_314](end_span)
-        appointmentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Simular envio do formulário
-            setTimeout(() => {
-                const name = document.getElementById('name').value;
-                [span_315](start_span)modalMessage.textContent = `Obrigado, ${name}! Seu horário foi agendado com sucesso. Aguardamos você na Barbearia Futura!`;[span_315](end_span)
-                confirmationModal.classList.add('active');
-                appointmentForm.reset();
-            }, 1000);
-        });
-        [span_316](start_span)modalClose.addEventListener('click', () => {[span_316](end_span)
-            confirmationModal.classList.remove('active');
-        });
-        [span_317](start_span)modalButton.addEventListener('click', () => {[span_317](end_span)
-            confirmationModal.classList.remove('active');
-        });
-        // Fechar modal ao clicar fora
-        [span_318](start_span)confirmationModal.addEventListener('click', (e) => {[span_318](end_span)
-            if (e.target === confirmationModal) {
-                confirmationModal.classList.remove('active');
-            }
-        });
-        // Atualizar ano no footer
-        [span_319](start_span)document.getElementById('year').textContent = new Date().getFullYear();[span_319](end_span)
-        // Validação do formulário
-        [span_320](start_span)document.getElementById('phone').addEventListener('input', function (e) {[span_320](end_span)
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.substring(0, 11);
-            
-            // Formatar como (XX) XXXXX-XXXX
-            if (value.length > 2) {
-                [span_321](start_span)value = `(${value.substring(0, 2)}) ${value.substring(2)}`;[span_321](end_span)
-            }
-            if (value.length > 10) {
-                value = `${value.substring(0, 10)}-${value.substring(10)}`;
-            }
-            
-            e.target.value = value;
-        [span_322](start_span)});[span_322](end_span)
-
-        // Suavizar scroll para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            [span_323](start_span)anchor.addEventListener('click', function (e) {[span_323](end_span)
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                [span_324](start_span)if (targetId === '#') return;[span_324](end_span)
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        [span_325](start_span)top: targetElement.offsetTop - 80,[span_325](end_span)
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        [span_326](start_span)});[span_326](end_span)
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>
+            </html>
